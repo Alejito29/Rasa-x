@@ -1,0 +1,36 @@
+2021-06-07 16:34:19 ERROR Utilities:192 - java.io.FileNotFoundException: Config.properties (El sistema no puede encontrar el archivo especificado)
+2021-06-07 16:41:10 INFO  DataBase:26 - Conectado ... a la base de datos
+2021-06-07 16:41:13 INFO  DataBase:26 - Conectado ... a la base de datos
+2021-06-07 16:41:13 INFO  Utilities:51 - The user was inserted, because it had not existed
+2021-06-07 16:41:13 INFO  Utilities:62 - The niif was inserted, because it had not existed
+2021-06-07 16:41:13 INFO  Utilities:40 - Insertado correctamente la reservacion
+2021-06-07 16:41:15 INFO  DataBase:26 - Conectado ... a la base de datos
+2021-06-07 16:41:15 INFO  Utilities:51 - The user was inserted, because it had not existed
+2021-06-07 16:41:15 INFO  Utilities:62 - The niif was inserted, because it had not existed
+2021-06-07 16:41:15 INFO  Utilities:40 - Insertado correctamente la reservacion
+2021-06-07 16:41:29 INFO  DataBase:26 - Conectado ... a la base de datos
+2021-06-07 16:41:29 INFO  Utilities:51 - The user was inserted, because it had not existed
+2021-06-07 16:41:29 INFO  Utilities:62 - The niif was inserted, because it had not existed
+2021-06-07 16:41:29 INFO  Utilities:40 - Insertado correctamente la reservacion
+2021-06-07 16:48:34 INFO  DataBase:26 - Conectado ... a la base de datos
+2021-06-07 16:48:36 INFO  DataBase:26 - Conectado ... a la base de datos
+2021-06-07 16:48:36 INFO  Utilities:51 - The user was inserted, because it had not existed
+2021-06-07 16:48:36 INFO  Utilities:62 - The niif was inserted, because it had not existed
+2021-06-07 16:48:36 INFO  Utilities:40 - Insertado correctamente la reservacion
+2021-06-07 16:48:51 INFO  DataBase:26 - Conectado ... a la base de datos
+2021-06-07 16:48:51 INFO  Utilities:51 - The user was inserted, because it had not existed
+2021-06-07 16:48:51 INFO  Utilities:62 - The niif was inserted, because it had not existed
+2021-06-07 16:48:51 INFO  Utilities:40 - Insertado correctamente la reservacion
+2021-06-07 16:48:57 INFO  DataBase:26 - Conectado ... a la base de datos
+2021-06-07 16:48:57 INFO  Utilities:51 - The user was inserted, because it had not existed
+2021-06-07 16:48:57 INFO  Utilities:62 - The niif was inserted, because it had not existed
+2021-06-07 16:48:57 INFO  Utilities:40 - Insertado correctamente la reservacion
+2021-06-07 16:59:39 INFO  DataBase:26 - Conectado ... a la base de datos
+2021-06-07 16:59:44 INFO  DataBase:26 - Conectado ... a la base de datos
+2021-06-07 16:59:44 INFO  Utilities:51 - The user was inserted, because it had not existed
+2021-06-07 16:59:44 INFO  Utilities:62 - The niif was inserted, because it had not existed
+2021-06-07 16:59:44 INFO  Utilities:40 - Insertado correctamente la reservacion
+2021-06-07 18:13:19 ERROR Utilities:192 - java.io.FileNotFoundException: Config.properties (El sistema no puede encontrar el archivo especificado)
+2021-06-07 18:21:59 ERROR Utilities:192 - java.io.FileNotFoundException: Config.properties (El sistema no puede encontrar el archivo especificado)
+2021-06-07 18:22:29 ERROR Utilities:192 - java.io.FileNotFoundException: Config.properties (El sistema no puede encontrar el archivo especificado)
+2021-06-07 18:27:40 ERROR Utilities:192 - java.io.FileNotFoundException: Config.properties (El sistema no puede encontrar el archivo especificado)
