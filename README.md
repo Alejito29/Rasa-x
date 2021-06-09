@@ -118,7 +118,7 @@ Dirigirse a  la carpeta clonada con la terminal del paso anterior
 ![Captura](https://user-images.githubusercontent.com/78820446/121409461-2c5afc80-c927-11eb-9734-de95ec51b429.JPG)
 
 
-* Ahora debe abrir dos terminales de **Window**, ir la carpeta base del proyecto y ejeuctar los siguientes comandos en una terminal y el otro ando en la otra terminal
+* Ahora debe abrir dos terminales de **Window**, ir la carpeta base del proyecto y ejecutar los siguientes comandos en una terminal y el otro comando  en la otra terminal
 
 ![Captura](https://user-images.githubusercontent.com/78820446/121410661-70023600-c928-11eb-807e-8ebfcb3cd2b2.JPG)
 
