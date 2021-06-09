@@ -26,6 +26,7 @@ Git,               Version  2.21.0
 Java               Version  1.8.0_91
 Chromium           Version  92.0.4499.0
 Python             Version  3.8.10
+Rasa               Version  3.8.10
 ```
 
 ### Instalación 🔧
@@ -207,7 +208,7 @@ Este proyecto está probando las siguientes funcionalidades:
     - Crear reporte de los gastos
     - Crear reporte aglomerado.
 
-# Ejecutando pruebas E2E sobre Ghost 3.3.0 ⚙️
+# Interactuando con rasa ⚙️
 
 Para ejecutar unicamente debe  hacer lo siguiente:
 
