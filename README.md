@@ -149,40 +149,52 @@ Skipping registering GPU devices...
 2021-06-09 13:44:59 INFO     rasa_sdk.endpoint  - Action endpoint is up and running on http://localhost:5055
 
 ```
-2 Segundo comando rasa run actions**:
-    - Este comando inicia a escuchar las acciones que se van tener en rasa
+2. Segundo comando **rasa shell**:
+    - Este comando inicia rasa para empezar a interactuar con el chat bot en base a las intenciones
 
-![Captura](https://user-images.githubusercontent.com/78820446/121411548-5f05f480-c929-11eb-8ece-ddef68e988c9.JPG)
+![Captura](https://user-images.githubusercontent.com/78820446/121412207-0f73f880-c92a-11eb-8fac-b08f42b06a99.JPG)
+
+```
+Debe salir el siguiente mensaje en la consola 
+
+ide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2021-06-09 13:44:59 INFO     rasa_sdk.endpoint  - Starting action endpoint server...
+2021-06-09 13:44:59 INFO     rasa_sdk.executor  - Registered function for 'action_save_data_in_storage'.
+2021-06-09 13:44:59 INFO     rasa_sdk.executor  - Registered function for 'action_ask_last_name'.
+2021-06-09 13:44:59 INFO     rasa_sdk.executor  - Registered function for 'action_restart'.
+2021-06-09 13:44:59 INFO     rasa_sdk.executor  - Registered function for 'action_reset_all_slots'.
+2021-06-09 13:44:59 INFO     rasa_sdk.executor  - Registered function for 'action_ask_ticket_reservation'.
+2021-06-09 13:44:59 INFO     rasa_sdk.executor  - Registered function for 'action_ask_expense'.
+2021-06-09 13:44:59 INFO     rasa_sdk.executor  - Registered function for 'action_ask_the_report_room'.
+2021-06-09 13:44:59 INFO     rasa_sdk.executor  - Registered function for 'action_ask_the_report_user'.
+2021-06-09 13:44:59 INFO     rasa_sdk.executor  - Registered function for 'action_ask_the_report_reservation'.
+2021-06-09 13:44:59 INFO     rasa_sdk.executor  - Registered function for 'action_ask_the_report_expense'.
+2021-06-09 13:44:59 INFO     rasa_sdk.executor  - Registered function for 'action_ask_the_report_all'.
+2021-06-09 13:44:59 INFO     rasa_sdk.endpoint  - Action endpoint is up and running on http://localhost:5055
+
+```
+
 
 ## Funcionalidades y estrategias 🚗
 
 Este proyecto está probando las siguientes funcionalidades:
 
-1. Manage Pages:
-    - Iniciar sesión en Ghost ir a post, filtar unicamente por la opcion de concepto
-    - Iniciar sesión en Ghost ir a post, filtar unicamente por concepto y autor ghost
-    - Iniciar sesión en Ghost ir a post, filtar unicamente por concepto, autor y tag
-    - Iniciar sesión en Ghost ir a post, filtar unicamente por concepto, autor,  tag y publicacion reciente
-3. Manage General Settings:
-    - Iniciar sesión en Ghost ir a configuraciones generales y editar el título y la descripción del sitio.
-    - Iniciar sesión en Ghost ir a configuraciones generales y editar la zona horaria del sitio.
-    - Iniciar sesión en Ghost ir a configuraciones generales y poner el sitio como privado.
-    - Iniciar sesión en Ghost ir a configuraciones generales y editar el campo de lenguage del sitio.
-4. Manage Login:
-    - Login con usuario y contraseña incorrectos
-    - Login con usuario y contraseña correctos
-    - Login con usuario correcto y contraseña incorrecta
-    - Login con usuario incorrecto y contraseña correcta
- 4. Create Posts:
-    - Creación de post usando el botón "+" desde home
-    - Creación de post usando el botón "New post" desde listado de posts
-    - Creación de post con estado published usando el botón "New Post" desde listado de post
-    - Creación de post con estado scheduled usando el botón "New Post" desde listado de post
- 5. Manage Tags:
-    - Iniciar sesión en Ghost ir a tags, crear un nuevo tag con nombre y descripción
-    - Iniciar sesión en Ghost ir a tags, editar el nombre de un tag existente
-    - Iniciar sesión en Ghost ir a tags, agregar metadata y descripción de metadata a un tag existente
-    - Iniciar sesión en Ghost ir a tags, eliminar un tag existente
+1. Gestionar las reservas de habitaciones:
+    - Crear una reservacion
+2. Gestionar las habitaciones libres/ocupadas:
+    - Reservar habitacion
+    - Dejar libre el cuarto
+3. Gestionar gastos extras:
+    - Añadir gasto asociado a un ticket
+ 4. Facturar a los clientes:
+    - Generar la facturacion del cliente en base al ticket
+ 5. Permitir listados y estadísticas:
+    - Crear reporte de los cuartos
+    - Crear reporte de los usuarios
+    - Crear reporte de las reservaciones
+    - Crear reporte de los gastos
+    - Crear reporte aglomerado.
 
 # Ejecutando pruebas E2E sobre Ghost 3.3.0 ⚙️
 
