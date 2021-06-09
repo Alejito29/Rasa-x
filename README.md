@@ -261,13 +261,6 @@ En este enlace podrán encontrar un pequeño video donde explicamos la forma de 
 https://uniandes-my.sharepoint.com/:v:/g/personal/w_gonzalezg_uniandes_edu_co/ETYtwFw3lEFLjWN-SzKbImQBu4IktCsbP3a2f1IC2nfqHw?e=L7I2kB
 
 
-### Analice las pruebas end-to-end con  los diferentes tipos de datos 🔩
-
-En este caso para el analizis de las pruebas ejecutadas unicamente debe evidenciar los logs de la consola y ver los resultados en la carpeta **JWDA-Kraken-Semana5\proyecto\reports**
-
-**NOTA: La descripción de la estrategia usada para la generación de datos y la definición de los oráculos, la puede encontrar como una página en la wiki de este repositorio.**
-
-
 ## Construido con 🛠️
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
