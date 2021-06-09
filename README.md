@@ -210,139 +210,36 @@ Este proyecto está probando las siguientes funcionalidades:
 
 # Interactuando con rasa ⚙️
 
-Para ejecutar unicamente debe  hacer lo siguiente:
-
-1. **Para ejecutar las pruebas de la versión Ghost 3.3.0** debe ejecutar el comando **git checkout Ghost3.3.0**
-2. Asegurese de haber inicializado ghost en la versión 3.3.0
-3. Luego deberá modificar las variables **USER** y **PASSWORD** en el archivo **kraken_mobile_properties.json**, que está ubicado dentro de la carpeta **proyecto**, con sus credenciales registradas en Ghost 3.3.0. **Por ejemplo:
-
-    **"USER":"arodriguezt9509@gmail.com",**
- 
-    **"PASSWORD":"********"
-      
-4. Asegurese de tener la vista del sitio como **pública**. Para esto debe ir a "General Settings" en Ghost y en la sección "Advanced Settings" debe tener deshabilitada la opción de "Make this site private", como se observa a continuación.
-
-5. Por último, ejecute el siguiente comando: **bundle exec kraken-mobile run --properties=./kraken_mobile_properties.json**, en este caso si realizo las configuraciones de una manera correcta deberán empezar a ejecutarse los tests, en caso contrario deberaá revisar alguno de los pasos de instalación. 
-
-# Ejecutando pruebas E2E sobre Ghost 3.42.5 ⚙️
-
-Para ejecutar unicamente debe  hacer lo siguiente:
-
-1. **Para ejecutar las pruebas de la versión Ghost 3.42.5** debe ejecutar el comando **git checkout Ghost3.42.5**
-2. Asegurese de haber inicializado Ghost en la versión 3.42.5
-3. Luego deberá modificar las variables **USER** y **PASSWORD** en el archivo **kraken_mobile_properties.json**, ue está ubicado dentro de la carpeta **proyecto**, con sus credenciales registradas en Ghost 3.42.5. **Por ejemplo:
-
-    **"USER":"arodriguezt9509@gmail.com",**
- 
-    **"PASSWORD":"********"
-    
-4.  Asegurese de tener la vista del sitio como **pública**. Para esto debe ir a "General Settings" en Ghost y en la sección "Advanced Settings" debe tener deshabilitada la opción de "Make this site private", como se observa a continuación.
-
-![image](https://user-images.githubusercontent.com/78829003/117516478-d75e4c00-af5e-11eb-8002-3ff61f2e25d6.png)
-
-5. Por último, ejecute el siguiente comando: **bundle exec kraken-mobile run --properties=./kraken_mobile_properties.json**, en este caso si realizo las configuraciones de una manera correcta deberán empezar a ejecutarse los tests, en caso contrario deberaá revisar alguno de los pasos de instalación. 
+Para interactuar con rasa unicamente debe escribir algun texto, en este caso las intenciones programadas en rasa fueron las siguientes 
 
 
-### Analice las pruebas end-to-end 🔩
+```
+- intent: request_names
+  examples: |
+    - i want to deliver the room
+- intent: request_statistics_rooms
+  examples: |
+    - please can you generate the reports  about rooms
+- intent: request_statistics_user
+  examples: |
+    - could i look the report about user
+- intent: request_statistics_reservation
+  examples: |
+    - please, I want to watch the reporrt about reservation
+- intent: request_statistics_expense
+  examples: |
+    - i want to look the report about expense
+- intent: request_statistics_all
+  examples: |
+    - please raza generates all reports
 
-En este caso para el analizis de las pruebas ejecutadas unicamente debe evidenciar los resultados de la consola y ver los resultados en la carpeta **JWDA-Kraken-Semana5\proyecto\reports**
+```
 
-# Ejecutando VRT con Resemble.js ⚙️
+En caso que dese revisar las intenciones las podra encontrar en el siguiente enlace **https://github.com/Alejito29/Rasa-x/blob/master/data/nlu/nlu.yml**
 
-Para ejecutar debe  hacer lo siguiente:
-
-1. **Para ejecutar VRT en Resemble.js** debe ejecutar el comando **git checkout Resemble/Semana6**
-2. Luego de moverse a la rama Resemble/Semana6 debe ir a la carpeta **resemble** ejecutando el siguiente comando **cd resemble**
-3. Allí deberá ejecutar el comando **npm install**
-4. En el archivo **index.js** que se encuentra dentro de la carpeta **resemble** deberá modificar el path que contiene a la carpeta **resemble**, como se indica en la siguiente imagen:
-
-![image](https://user-images.githubusercontent.com/78829003/118384661-7f15f280-b5cd-11eb-8467-f3b1a93bc2b5.png)
-5. Para ejecutar el vrt para cada uno de los escenarios deberá modificar la variable **scenario** y la variable **steps**, teniendo en cuenta lo siguiente:
-
-![image](https://user-images.githubusercontent.com/78829003/118384817-d6689280-b5ce-11eb-90d3-2f21376cf51e.png)
-
-|Scenario|Steps|
-|--------|-----|
-|Login_invalid_user_invalid_pass|6|
-|Login_invalid_user_valid_pass|6|
-|Manage_settings_change_timezone|10|
-|Manage_settings_make_private|9|
-|Pages_filter_by_item_1st|11|
-|Pages_filter_by_item_1st_to_4th|17|
-|Post_creation_new_post_button|13|
-|Post_creation_scheduled|19|
-|Tag_manage_add_metadata|16|
-|Tag_manage_delete_tag|13|
+Ahora unicamente debe escribir algunos de los textos indicados en las intenciones, comenzara a solicitar o procesar lo solicitado rasa.
 
 
-6. Luego de modificar las variables anteriores, deberá ejecutar el comando **node index.js** lo cual le creará una carpeta dentro de la carpeta **results** con el nombre del escenario ejecutado. Dentro de esta carpeta encontrará las imágenes del resultado de las comparaciones realizadas paso a paso y el reporte de cada una de estas comparaciones, igualmente por cada paso.
-
-![image](https://user-images.githubusercontent.com/78829003/118384703-ecc21e80-b5cd-11eb-8b9c-41c7bc78ceef.png)
-
-### Analice el vrt con Resemble🔩
-
-Para cada uno de los escenarios ejecutados, encontrará dentro de la carpeta **results** una carpeta con el nombre del escenario. Dentro de esta carpeta podrá visualizar las imágenes del resultado de la comparación de cada uno de los pasos ejecutados en el escenario para Ghost 3.3.0 y Ghost 3.42.5. Igualmente podrá visualizar un reporte que le mostrará la imagen del paso ejecutado en Ghost 3.3.0, la imagen del paso ejecutado en Ghost 3.42.5 y las diferencias entre estas dos imágenes:
-
-![image](https://user-images.githubusercontent.com/78829003/118384789-973a4180-b5ce-11eb-83c6-55d8c6132bd2.png)
-
-# Ejecutando VRT con Backstop.js ⚙️
-
-Para ejecutar debe  hacer lo siguiente:
-
-1. **Para ejecutar VRT en Resemble.js** debe descargar la CLI. Para esto abra una terminal y ejecute el comando **npm install -g backstopjs**
-2. Luego debe moverse a la rama  Backstop/Semana6  ejecutando el comando **git checkout Backstop/Semana6** 
-3. Luego de moverse a la rama  Backstop/Semana6 debe ir a la carpeta **backstop** ejecutando el siguiente comando **cd backstop**
-4. Allí deberá ejecutar el comando **backstop test**
-5. Esto le abrirá una ventana en el browser que le mostrará el resultado para cada uno de los pasos del escenario Login with invalid user and valid password.
-
-### Analice el vrt con Backstop 🔩
-
-Luego de ejecutar el comando backstop test se le abrirá automaticamente una nueva ventana en el browser la cual mostrará el reporte con los resultados obtenidos. Para cada uno de los pasos del escenario se mostrará la imagen de referencia, la imagen de test y la imagen con las diferencias. Estos resultados se mostrán para dos tipos de pantallas.
-
-![image](https://user-images.githubusercontent.com/78829003/118386658-ab863a80-b5de-11eb-8deb-614b6a3645d8.png)
-
-# Ejecutando pruebas E2E con pool de datos pseudo-aleatorio dinámico sobre Ghost 3.42.5 ⚙️
-
-Para ejecutar las pruebas e2e con pool de datos pseudo-aleatorio dinámico estamos usando la herramienta **Mockaroo** y un script en **Python3** llamado **readmockaroo.py**. El script se encarga de generar los datos pseudo-aleatorios antes que se realicen las pruebas. Como requisito se debe tener installado **[Python3](https://www.python.org/downloads/)** y la librería de python **[requests](https://pypi.org/project/requests/)**. 
-
-1. **Para ejecutar las pruebas con pool de datos pseudo-aleatorio dinámico sobre la versión Ghost 3.42.5** debe ejecutar el comando **git checkout feature/jb_pool_mockaroo**
-2. Asegurese de haber inicializado Ghost en la versión 3.42.5
-3. Moverse a la carpeta proyecto con el siguiente comando **cd proyecto**
-4. Luego deberá modificar las variables **USER** y **PASSWORD** en el archivo **credentials.json**, que está ubicado en la carpeta **proyecto**, con sus credenciales registradas en Ghost 3.42.5. **Por ejemplo:
-
-    **"USER":"prueba@gmail.com",**
- 
-    **"PASSWORD":"********"
-      
-5. Genere los datos pseudo-aleatorios con el siguiente comando **python3 readmockaroo.py**
-6. Luego de ejecutado el script podrá verificar que el archivo **kraken_properties_mockaroo.json** se ha modificado con sus credenciales y otras variables que tienen valores aleatorios generados en **Mockaroo** que se usarán en las pruebas.  
-7. Por último, ejecute el siguiente comando: **bundle exec kraken-mobile run --properties=./kraken_properties_mockaroo.json**, en este caso si realizo las configuraciones de una manera correcta deberán empezar a ejecutarse los tests, en caso contrario deberá revisar alguno de los pasos de instalación. 
-8. Si desea, puede actualizar el pool de datos corriendo nuevamente el script de python para realizar las pruebas con nuevos datos
-
-En caso de que alguno de los escenarios de prueba falle, puede deberse a que en la generación de datos con **Mockaroo** a algunas de las variables hemos configurado para que en un 20% de las veces genere datos NULL.
-
-## Pasos para ejecutar el Generador.jar para las pruebas E2E sobre Ghost 3.42.5: Este tiene cubrimientos para generar  los diferentes tipos de datos **Prioriatio, Complemento del pseudo y aleatorio**
-
-* Clonar el repositorio **https://github.com/Alejito29/JWDA-Kraken-Semana5**
-
-* Ubicarse en la rama **feature/ag_kraken_data**
-
-* Abrir el ejecutable **Generador.jar** que se encuentra en la raiz del proyecto, en caso de ser sistema operativo linux debe ejecutarlo con la terminal, si es mac o windows unicamente debe darle doble click, como requisito es necesario que tenga instalado JAVA  1.7.
-
-![Evidenica jar2](https://user-images.githubusercontent.com/78820446/119274217-70829900-bbd4-11eb-989e-1825cb0150da.png)
-
-
-* Por ultimo debe escoger el nombre del test, cuantas veces se va repetir la creacion y que tipo de dato desea. Con el jar podra crear diferentes tipos de datos, en este caso usted define cuanto dataset desea generar, aunque si genera el maximo cubriria los casos solicitados solo que se demoraria la ejecucion.
-
- ![Evidenica jar](https://user-images.githubusercontent.com/78820446/119274137-1bdf1e00-bbd4-11eb-9f1e-ab7cb971bb13.png)
-
-Observacion en la wiki se encuentra el detalle tecnico como ejecutar cada prueba con los diferentes tipos de datos 
-
-* https://github.com/Alejito29/JWDA-Kraken-Semana5/wiki/Pool-de-datos-Apriori
-* https://github.com/Alejito29/JWDA-Kraken-Semana5/wiki/Pool-de-datos-pseudo-aleatorio-din%C3%A1mico
-* https://github.com/Alejito29/JWDA-Kraken-Semana5/wiki/Aleatorio
-
-Adicional en caso que desen tener acceso al fuente del codigo java lo encontraran aca **https://github.com/Alejito29/JWDA-Java-Semana7**
 
 ## Video de explicacion para ejecutar el Generador.jar 
 
@@ -378,13 +275,6 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 ## Autores ✒️
 
 _Autor_
-
-* **Wilson Alejandro Gonzalez Gaitan** - *Trabajo Inicial* - [Alejito29](https://github.com/Alejito29)
-* **Dario Fernando Herrera Gonzalez** - *Trabajo Inicial* - [dherrera54](https://github.com/dherrera54)
-* **Angelica Maria Rodriguez Torres** - *Trabajo Inicial* - [angelicamariarodriguez](https://github.com/angelicamariarodriguez9)
-* **Jorge Ivan Barrera Rea** - *Trabajo Inicial* - [ivanbrij](https://github.com/ivanbrij)
-
-
 
 
 ## Licencia 📄
