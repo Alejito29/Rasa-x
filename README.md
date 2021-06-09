@@ -64,6 +64,17 @@ Revisar que tenga instalado git en su maquina, se realiza de la siguiente manera
 ![git](https://user-images.githubusercontent.com/78820446/117470240-351d7480-af1c-11eb-9032-03f81b674975.PNG)
 
 
+El siguiente paso 
+
+```
+Revisar que tenga instalado python en su maquina, se realiza de la siguiente manera. En caso que no aparesca debe verificar la instalacion y configuracion de python
+```
+
+* Abrir la terminal de su equipo, puede ser la misma que abrio en el paso anterior y ejecutar el siguiente comando **python --version**
+
+![Captura](https://user-images.githubusercontent.com/78820446/121415438-5adbd600-c92d-11eb-8967-8f3ab2bdd7af.JPG)
+
+
 El siguiente paso
 
 ```
