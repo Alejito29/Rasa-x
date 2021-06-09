@@ -254,9 +254,9 @@ Ahora unicamente debe escribir algunos de los textos indicados en las intencione
 ![Captura](https://user-images.githubusercontent.com/78820446/121418373-814f4080-c930-11eb-91fd-3adadc8fcc62.JPG)
 
 
-## Video de explicacion para ejecutar el Generador.jar 
+## Video de explicacion para explicar funcioanamiento
 
-En este enlace podrán encontrar un pequeño video donde explicamos la forma de  generar los datos antes de ejecutar los test de las diferentes formas
+En este enlace podrán encontrar un pequeño video donde explicamos la forma de correr y ejecutar el programa
 
 https://uniandes-my.sharepoint.com/:v:/g/personal/w_gonzalezg_uniandes_edu_co/ETYtwFw3lEFLjWN-SzKbImQBu4IktCsbP3a2f1IC2nfqHw?e=L7I2kB
 
