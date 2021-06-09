@@ -186,6 +186,17 @@ Skipping registering GPU devices...
 2021-06-09 13:44:59 INFO     rasa_sdk.endpoint  - Action endpoint is up and running on http://localhost:5055
 
 ```
+3. Debe abrir el jar ubicado dentro de la carpeta del proyecto, este se ubica en **Rasa-x\Formularios**, antes de abrir el programa por favor cambiar los siguientes parametros dentro del archivo **Config.properties**
+    - Actualizar la key config.enpoint.database=C:/Users/wilso/Desktop/rasa/profile.db por la nueva ruta, la base de datos se ubica en el mismo proyecto clonado llamado. Es importante que la ruta la deja con **/** 
+    
+    ![Captura](https://user-images.githubusercontent.com/78820446/121419940-2585b700-c932-11eb-82bf-ebf9be3f6460.JPG)
+
+    ![Captura](https://user-images.githubusercontent.com/78820446/121420206-6aa9e900-c932-11eb-86b8-c9069739ab2d.JPG)
+
+    
+    - Con ese **JAR** contiene para interactuar con la reservacion, actualizar las reservas, y añadir gasto. Unicamente debe darle doble click al programa si tiene configurado correactamente java
+
+![Captura](https://user-images.githubusercontent.com/78820446/121420563-d724e800-c932-11eb-961b-8db14b41a75c.JPG)
 
 
 ## Funcionalidades y estrategias 🚗
@@ -239,6 +250,7 @@ En caso que dese revisar las intenciones las podra encontrar en el siguiente enl
 
 Ahora unicamente debe escribir algunos de los textos indicados en las intenciones, comenzara a solicitar o procesar lo solicitado rasa.
 
+![Captura](https://user-images.githubusercontent.com/78820446/121418373-814f4080-c930-11eb-91fd-3adadc8fcc62.JPG)
 
 
 ## Video de explicacion para ejecutar el Generador.jar 
