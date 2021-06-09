@@ -135,7 +135,8 @@ Dirigirse a  la carpeta clonada con la terminal del paso anterior
 ![Captura](https://user-images.githubusercontent.com/78820446/121410661-70023600-c928-11eb-807e-8ebfcb3cd2b2.JPG)
 
 
-1. Primer comando rasa **rasa run actions**:
+1. Primer comando rasa **rasa run actions**, pero antes de ejecutar el comando debe configurar el apuntamiento de los folder donde se encuentra la plantilla, ejemplo ***Rasa-x\Formularios\Plantilla**
+    
     - Este comando inicia a escuchar las acciones que se van tener en rasa
 
 ![Captura](https://user-images.githubusercontent.com/78820446/121411548-5f05f480-c929-11eb-8ece-ddef68e988c9.JPG)
@@ -187,13 +188,13 @@ Skipping registering GPU devices...
 
 ```
 3. Debe abrir el jar ubicado dentro de la carpeta del proyecto, este se ubica en **Rasa-x\Formularios**, antes de abrir el programa por favor cambiar los siguientes parametros dentro del archivo **Config.properties**
+
     - Actualizar la key config.enpoint.database=C:/Users/wilso/Desktop/rasa/profile.db por la nueva ruta, la base de datos se ubica en el mismo proyecto clonado llamado. Es importante que la ruta la deja con **/** 
     
     ![Captura](https://user-images.githubusercontent.com/78820446/121419940-2585b700-c932-11eb-82bf-ebf9be3f6460.JPG)
 
     ![Captura](https://user-images.githubusercontent.com/78820446/121420206-6aa9e900-c932-11eb-86b8-c9069739ab2d.JPG)
 
-    
     - Con ese **JAR** contiene para interactuar con la reservacion, actualizar las reservas, y añadir gasto. Unicamente debe darle doble click al programa si tiene configurado correactamente java
 
 ![Captura](https://user-images.githubusercontent.com/78820446/121420563-d724e800-c932-11eb-961b-8db14b41a75c.JPG)
