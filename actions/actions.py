@@ -360,7 +360,6 @@ class AskForSlotActionExpenseReport(Action):
             item_html_tmp = item_html_tmp + "<td> " + str(item.TICKET) + " </td></tr>" + '\n'
             html_content = html_content + item_html_tmp
 
-
         f = open(path_file + "Pagina/report.html", "a")
         f.write(content_file_header + '\n')
         f.write(html_td + '\n')
@@ -398,7 +397,7 @@ class AskForSlotActionAllReport(Action):
             item_html_tmp = item_html_tmp + "<td> " + item.DESCRIPTION + " </td>" + '\n'
             item_html_tmp = item_html_tmp + "<td> " + str(item.VALOR) + " </td>" + '\n'
             item_html_tmp = item_html_tmp + "<td> " + str(item.TICKET) + " </td></tr>" + '\n'
-            html_content = html_content + item_html_tmp+ '\n'
+            html_content = html_content + item_html_tmp + '\n'
 
         html_content = html_content + "</table>" + '\n'
 
@@ -444,7 +443,6 @@ class AskForSlotActionAllReport(Action):
 
         html_content = html_content + "</table>" + '\n'
 
-
         rooms = profile_db.get_all_rooms()
         html_content = html_content + "<div style=height: 32px;><span style=height: 32px;>Contenido de cuartos</span></div>" + '\n'
         html_content = html_content + "<table>"
@@ -474,4 +472,25 @@ class AskForSlotActionAllReport(Action):
         url = path_file + "Pagina/report.html"
         webbrowser.open(url)
         dispatcher.utter_message(text=f"We are going to page the report")
+        return []
+
+
+class AskForSlotActionExpense(Action):
+    def name(self) -> Text:
+        return "action_ask_delivery_room"
+
+    def run(
+            self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> List[EventType]:
+        ticket_reservation = str(tracker.get_slot("ticket_reservation"))
+
+        if ticket_reservation.isdigit():
+            room_filter = list(filter(lambda x: x.TICKET_RESERVATION == int(ticket_reservation),
+                                      profile_db.get_all_rooms()))
+            for item in room_filter:
+                profile_db.updateRoom(item.TICKET_RESERVATION, 'LIBRE')
+            dispatcher.utter_message(text=f"Now your room was free")
+        else:
+            dispatcher.utter_message(text=f"El ticket must be numeric and kind of real")
+
         return []

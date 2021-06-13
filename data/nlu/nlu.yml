@@ -103,3 +103,6 @@ nlu:
 - intent: request_statistics_all
   examples: |
     - please raza generates all reports
+- intent: request_deliver_room
+  examples: |
+    - Rasa i will deliver my room

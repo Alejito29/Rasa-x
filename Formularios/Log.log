@@ -1,5 +1,3 @@
-2021-06-07 18:03:40 ERROR Utilities:192 - java.io.FileNotFoundException: Config.properties (El sistema no puede encontrar el archivo especificado)
-2021-06-07 18:04:00 ERROR Utilities:192 - java.io.FileNotFoundException: Config.properties (El sistema no puede encontrar el archivo especificado)
-2021-06-07 18:05:26 ERROR Utilities:192 - java.io.FileNotFoundException: Config.properties (El sistema no puede encontrar el archivo especificado)
-2021-06-07 18:06:21 ERROR Utilities:192 - java.io.FileNotFoundException: Config.properties (El sistema no puede encontrar el archivo especificado)
-2021-06-07 18:06:26 ERROR Utilities:192 - java.io.FileNotFoundException: Config.properties (El sistema no puede encontrar el archivo especificado)
+2021-06-13 11:00:15 INFO  DataBase:26 - Conectado ... a la base de datos
+2021-06-13 11:00:17 INFO  DataBase:26 - Conectado ... a la base de datos
+2021-06-13 11:00:17 INFO  Utilities:101 - The niif was inserted, because it had not existed

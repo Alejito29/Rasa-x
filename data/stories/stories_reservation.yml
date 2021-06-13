@@ -75,3 +75,26 @@ stories:
   steps:
   - intent: request_statistics_all
   - action: action_ask_the_report_all
+
+
+- story: interactive_story_7
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_deliver_room
+  - action: deliver_form
+  - active_loop: deliver_form
+  - slot_was_set:
+    - requested_slot: client_names
+  - slot_was_set:
+    - client_names: vincent
+  - slot_was_set:
+    - requested_slot: ticket_reservation
+  - slot_was_set:
+    - ticket_reservation: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_ask_delivery_room
+  - action: action_restart
+  - action: action_reset_all_slots

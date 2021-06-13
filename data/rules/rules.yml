@@ -30,8 +30,20 @@ rules:
   - action: action_restart
   - action: action_reset_all_slots
 
-- rule: Activate form
+- rule: Activate form delivery
   steps:
-  - intent: request_names
-  - action: name_form
-  - active_loop: name_form
+  - intent: request_deliver_room
+  - action: deliver_form
+  - active_loop: deliver_form
+
+- rule: Submit form delivery
+  condition:
+  - active_loop: deliver_form
+  steps:
+  - action: deliver_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_ask_delivery_room
+  - action: action_restart
+  - action: action_reset_all_slots

@@ -17,9 +17,15 @@ intents:
 - request_statistics_reservation
 - request_statistics_expense
 - request_statistics_all
+- request_deliver_room
 forms:
   name_form:
     first_name:
+    - type: from_text
+    ticket_reservation:
+    - type: from_text
+  deliver_form:
+    client_names:
     - type: from_text
     ticket_reservation:
     - type: from_text
@@ -27,6 +33,8 @@ slots:
   first_name:
     type: text
   ticket_reservation:
+    type: text
+  client_names:
     type: text
 
 responses:
@@ -45,6 +53,8 @@ responses:
   - text: I am a bot, powered by Rasa.
   utter_ask_first_name:
   - text: What is your full name?
+  utter_ask_client_names:
+  - text: What is the names?
   utter_submit:
   - text: Ok. Thanks!
   utter_slots_values:
@@ -59,6 +69,7 @@ actions:
 - action_reset_all_slots
 - action_restart
 - action_ask_expense
+- action_ask_delivery_room
 - action_ask_the_report_room
 - action_ask_the_report_user
 - action_ask_the_report_reservation
