@@ -149,6 +149,7 @@ class ProfileDB:
     def updateRoom(self, ticket, state_room):
         rooms = self.session.query(ROOM).filter(ROOM.TICKET_RESERVATION == ticket). \
             update({"ROOM_STATE": state_room})
+        self.session.commit()
         return rooms if rooms is not None else None
 
     def get_all_reservation(self):

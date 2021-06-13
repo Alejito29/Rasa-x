@@ -25,7 +25,7 @@ forms:
     ticket_reservation:
     - type: from_text
   deliver_form:
-    client_names:
+    room_number:
     - type: from_text
     ticket_reservation:
     - type: from_text
@@ -34,7 +34,7 @@ slots:
     type: text
   ticket_reservation:
     type: text
-  client_names:
+  room_number:
     type: text
 
 responses:
@@ -53,8 +53,8 @@ responses:
   - text: I am a bot, powered by Rasa.
   utter_ask_first_name:
   - text: What is your full name?
-  utter_ask_client_names:
-  - text: What is the names?
+  utter_ask_room_number:
+  - text: Which is the room?
   utter_submit:
   - text: Ok. Thanks!
   utter_slots_values:

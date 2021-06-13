@@ -85,9 +85,9 @@ stories:
   - action: deliver_form
   - active_loop: deliver_form
   - slot_was_set:
-    - requested_slot: client_names
+    - requested_slot: room_number
   - slot_was_set:
-    - client_names: vincent
+    - room_number: vincent
   - slot_was_set:
     - requested_slot: ticket_reservation
   - slot_was_set:

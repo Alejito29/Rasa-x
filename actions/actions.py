@@ -483,13 +483,18 @@ class AskForSlotActionExpense(Action):
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
     ) -> List[EventType]:
         ticket_reservation = str(tracker.get_slot("ticket_reservation"))
+        room_number = str(tracker.get_slot("room_number"))
 
         if ticket_reservation.isdigit():
-            room_filter = list(filter(lambda x: x.TICKET_RESERVATION == int(ticket_reservation),
+            room_filter = list(filter(lambda x: x.TICKET_RESERVATION == int(ticket_reservation)
+                                                and x.ROOM_NUMBER == room_number,
                                       profile_db.get_all_rooms()))
             for item in room_filter:
                 profile_db.updateRoom(item.TICKET_RESERVATION, 'LIBRE')
-            dispatcher.utter_message(text=f"Now your room was free")
+            if len(room_filter) > 0:
+                dispatcher.utter_message(text=f"The room was delivered. thank you")
+            else:
+                dispatcher.utter_message(text=f"The ticket or room is wrong, please check them and try again")
         else:
             dispatcher.utter_message(text=f"El ticket must be numeric and kind of real")
 
