@@ -258,7 +258,8 @@ Ahora unicamente debe escribir algunos de los textos indicados en las intencione
 
 En este enlace podrán encontrar un pequeño video donde explicamos la forma de correr y ejecutar el programa
 
-https://uniandes-my.sharepoint.com/:v:/g/personal/w_gonzalezg_uniandes_edu_co/ETYtwFw3lEFLjWN-SzKbImQBu4IktCsbP3a2f1IC2nfqHw?e=L7I2kB
+
+https://drive.google.com/file/d/10VBaXqEOQ066WMxq3eAEeU4ySSbPpnSj/view?usp=sharing
 
 
 ## Construido con 🛠️
