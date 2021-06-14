@@ -37,7 +37,7 @@ from typing import Dict, Text, Any, List
 from rasa_sdk.interfaces import Action
 from rasa_sdk import Tracker
 import logging
-
+import asyncio
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import (
     SlotSet,
@@ -51,7 +51,7 @@ from rasa_sdk.events import (
 from actions.profile_db import create_database, ProfileDB
 
 from faker import Faker
-
+DEFAULT_STREAM_READING_TIMEOUT_IN_SECONDS = 60
 PROFILE_DB_NAME = os.environ.get("PROFILE_DB_NAME", "profile")
 PROFILE_DB_URL = os.environ.get("PROFILE_DB_URL", f"sqlite:///{PROFILE_DB_NAME}.db")
 ENGINE = sa.create_engine(PROFILE_DB_URL)
@@ -487,7 +487,7 @@ class AskForSlotActionExpense(Action):
 
         if ticket_reservation.isdigit():
             room_all = list(filter(lambda x: x.ROOM_NUMBER == room_number
-                                   and x.TICKET_RESERVATION == int(ticket_reservation),
+                                             and x.TICKET_RESERVATION == int(ticket_reservation),
                                    profile_db.get_all_rooms()))
             if room_all is not None and len(room_all) > 0:
                 profile_db.updateRoom(room_all[0].id, 'LIBRE')
@@ -514,7 +514,7 @@ class AskForSlotActionExpense(Action):
 
         if ticket_reservation.isdigit():
             room_all = list(filter(lambda x: x.ROOM_NUMBER == room_number
-                                   and x.TICKET_RESERVATION == int(ticket_reservation),
+                                             and x.TICKET_RESERVATION == int(ticket_reservation),
                                    profile_db.get_all_rooms()))
             if room_all is not None and len(room_all) > 0:
                 profile_db.updateRoom(room_all[0].id, 'OCUPADO')
@@ -544,8 +544,64 @@ class AskForSlotActionExpense(Action):
         if ticket_reservation.isdigit() and room_number.isdigit() \
                 and 0 < int(category_item) <= 3 \
                 and int(value_item) > 0:
-            profile_db.add_expense(category_item, int(value_item), int(ticket_reservation) )
+            profile_db.add_expense(category_item, int(value_item), int(ticket_reservation))
             dispatcher.utter_message(text=f"Your expense was added success")
         else:
             dispatcher.utter_message(text=f"Please your fields are wrong. Something is not accomplishing ")
+        return []
+
+class AskForSlotActionExpense(Action):
+    def name(self) -> Text:
+        return "action_ask_added_a_reservation"
+
+    def run(
+            self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> List[EventType]:
+        first_name_client = str(tracker.get_slot("first_name_client")).strip().lower()
+        last_name_client = str(tracker.get_slot("last_name_client")).strip().lower()
+        phones_items = str(tracker.get_slot("phones_items")).strip().lower()
+        niif_id_item = str(tracker.get_slot("niif_id_item")).strip().lower()
+        niif_description_item = str(tracker.get_slot("niif_description_item")).strip().lower()
+        numbers_rooms_item = str(tracker.get_slot("numbers_rooms_item")).strip().lower()
+        rooms_category = str(tracker.get_slot("rooms_category")).strip().lower()
+        if len(first_name_client) != 0 and len(last_name_client) != 0 \
+                and len(phones_items) != 0 \
+                and len(niif_description_item) != 0 \
+                and niif_id_item.isdigit() \
+                and numbers_rooms_item.isdigit() \
+                and rooms_category.isdigit():
+            user = profile_db.get_all_user()
+            room = profile_db.get_all_rooms()
+            niif = profile_db.get_all_niif()
+            ticket = len(profile_db.get_all_reservation()) + 1
+
+            user_filter = list(filter(lambda x: x.NAME == first_name_client and x.LAST_NAME == last_name_client,
+                                      user))
+            niif_filter = list(filter(lambda x: x.DESCRIPTION == niif_description_item and x.NIIF == niif_id_item,
+                                      niif))
+
+            if len(user_filter) == 0:
+                profile_db.add_user(first_name_client, last_name_client)
+                user = profile_db.get_all_user()
+                user_filter = list(filter(lambda x: x.NAME == first_name_client and x.LAST_NAME == last_name_client,
+                                          user))
+
+            if len(niif_filter) == 0:
+                profile_db.add_niif(niif_description_item, niif_id_item)
+                niif = profile_db.get_all_niif()
+                niif_filter = list(filter(lambda x: x.DESCRIPTION == niif_description_item and x.NIIF == niif_id_item,
+                                          niif))
+
+            count = len(room) + 1
+            for i in range(int(numbers_rooms_item)):
+                profile_db.add_rooms(str(count), rooms_category, 'LIBRE', ticket)
+                count += 1
+
+            profile_db.add_reservation(user_filter[0].id, phones_items, niif_filter[0].id, int(rooms_category), ticket)
+            dispatcher.utter_message(text=f"Your reservation was success. The ticket was  {ticket}")
+
+        else:
+            dispatcher.utter_message(
+                text=f"Please your fields are wrong. Something is not accomplishing, "
+                     f" then check them and try again")
         return []

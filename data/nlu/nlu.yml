@@ -112,3 +112,6 @@ nlu:
 - intent: request_add_expense
   examples: |
     - Rasa i want to add an expense
+- intent: request_add_reservation
+  examples: |
+    - Rasa i try to add a reservation

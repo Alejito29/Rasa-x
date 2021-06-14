@@ -86,3 +86,21 @@ rules:
   - action: action_ask_added_an_expense
   - action: action_restart
   - action: action_reset_all_slots
+
+- rule: Activate form reservation
+  steps:
+  - intent: request_add_reservation
+  - action: add_reservation_form
+  - active_loop: add_reservation_form
+
+- rule: Submit form reservation
+  condition:
+  - active_loop: add_reservation_form
+  steps:
+  - action: add_reservation_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_ask_added_a_reservation
+  - action: action_restart
+  - action: action_reset_all_slots

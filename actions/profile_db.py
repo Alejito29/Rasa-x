@@ -165,7 +165,7 @@ class ProfileDB:
         self.session.add(RESERVATION(ID_USER=id_user, PHONES=phones, ID_NIIF=id_niif, ROOMS=rooms, TICKET=tickets))
         self.session.commit()
 
-    def add_rooms(self, room_number: str, kind_room: Integer, state: Boolean, ticket: Integer):
+    def add_rooms(self, room_number: str, kind_room: str, state: Boolean, ticket: Integer):
         """Add a new account for a new session_id. Assumes no such account exists yet."""
         self.session.add(
             ROOM(ROOM_NUMBER=room_number, KIND_OF_ROOM=kind_room, ROOM_STATE=state, TICKET_RESERVATION=ticket))

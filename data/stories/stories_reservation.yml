@@ -151,3 +151,45 @@ stories:
   - action: action_ask_added_an_expense
   - action: action_restart
   - action: action_reset_all_slots
+
+- story: interactive_story_10
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_add_reservation
+  - action: add_reservation_form
+  - active_loop: add_reservation_form
+  - slot_was_set:
+    - requested_slot: first_name_client
+  - slot_was_set:
+    - first_name_client: vincent
+  - slot_was_set:
+    - requested_slot: last_name_client
+  - slot_was_set:
+    - last_name_client: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: phones_items
+  - slot_was_set:
+    - phones_items: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: niif_id_item
+  - slot_was_set:
+    - niif_id_item: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: niif_description_item
+  - slot_was_set:
+    - niif_description_item: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: numbers_rooms_item
+  - slot_was_set:
+    - numbers_rooms_item: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: rooms_category
+  - slot_was_set:
+    - rooms_category: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_ask_added_a_reservation
+  - action: action_restart
+  - action: action_reset_all_slots

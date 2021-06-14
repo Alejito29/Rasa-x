@@ -19,6 +19,7 @@ intents:
 - request_statistics_all
 - request_deliver_room
 - request_add_expense
+- request_add_reservation
 forms:
   name_form:
     first_name:
@@ -44,8 +45,25 @@ forms:
       - type: from_text
     value_item:
       - type: from_text
+  add_reservation_form:
+    first_name_client:
+      - type: from_text
+    last_name_client:
+      - type: from_text
+    phones_items:
+      - type: from_text
+    niif_id_item:
+      - type: from_text
+    niif_description_item:
+      - type: from_text
+    numbers_rooms_item:
+      - type: from_text
+    rooms_category:
+      - type: from_text
 slots:
   first_name:
+    type: text
+  last_name:
     type: text
   ticket_reservation:
     type: text
@@ -55,7 +73,20 @@ slots:
     type: text
   value_item:
     type: text
-
+  first_name_client:
+    type: text
+  last_name_client:
+    type: text
+  phones_items:
+    type: text
+  niif_id_item:
+    type: text
+  niif_description_item:
+    type: text
+  numbers_rooms_item:
+    type: text
+  rooms_category:
+    type: text
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -71,7 +102,21 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_ask_first_name:
-  - text: What is your full name?
+  - text: What is the full name?
+  utter_ask_first_name_client:
+  - text: What is the first name?
+  utter_ask_last_name_client:
+  - text: What is the last name?
+  utter_ask_phones_items:
+  - text: What is the phones?
+  utter_ask_niif_id_item:
+  - text: What is the niif id? It should be numeric
+  utter_ask_niif_description_item:
+  - text: What is the description niif?
+  utter_ask_numbers_rooms_item:
+  - text: How many rooms do you want to get it? It should be numeric
+  utter_ask_rooms_category:
+  - text: What category  do you want to take it? 1. Single 2. Double  3. Matrimonial
   utter_ask_room_number:
   - text: Which is the room?
   utter_ask_category_item:
@@ -95,6 +140,7 @@ actions:
 - action_ask_delivery_room
 - action_ask_reserve_room
 - action_ask_added_an_expense
+- action_ask_added_a_reservation
 - action_ask_the_report_room
 - action_ask_the_report_user
 - action_ask_the_report_reservation
