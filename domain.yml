@@ -18,6 +18,7 @@ intents:
 - request_statistics_expense
 - request_statistics_all
 - request_deliver_room
+- request_add_expense
 forms:
   name_form:
     first_name:
@@ -34,12 +35,25 @@ forms:
       - type: from_text
     ticket_reservation:
       - type: from_text
+  add_expense_form:
+    room_number:
+      - type: from_text
+    ticket_reservation:
+      - type: from_text
+    category_item:
+      - type: from_text
+    value_item:
+      - type: from_text
 slots:
   first_name:
     type: text
   ticket_reservation:
     type: text
   room_number:
+    type: text
+  category_item:
+    type: text
+  value_item:
     type: text
 
 responses:
@@ -60,6 +74,10 @@ responses:
   - text: What is your full name?
   utter_ask_room_number:
   - text: Which is the room?
+  utter_ask_category_item:
+  - text: Which is the category? the categories are 1.Food or  2.Drinks or 3.Others. You should digit 1 or 2 or 3 please
+  utter_ask_value_item:
+    - text: Which is the value? It should be numeric
   utter_submit:
   - text: Ok. Thanks!
   utter_slots_values:
@@ -76,6 +94,7 @@ actions:
 - action_ask_expense
 - action_ask_delivery_room
 - action_ask_reserve_room
+- action_ask_added_an_expense
 - action_ask_the_report_room
 - action_ask_the_report_user
 - action_ask_the_report_reservation

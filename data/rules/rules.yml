@@ -66,3 +66,23 @@ rules:
   - action: action_ask_reserve_room
   - action: action_restart
   - action: action_reset_all_slots
+
+
+
+- rule: Activate form expense
+  steps:
+  - intent: request_add_expense
+  - action: add_expense_form
+  - active_loop: add_expense_form
+
+- rule: Submit form delivery
+  condition:
+  - active_loop: add_expense_form
+  steps:
+  - action: add_expense_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_ask_added_an_expense
+  - action: action_restart
+  - action: action_reset_all_slots

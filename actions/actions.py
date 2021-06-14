@@ -527,3 +527,25 @@ class AskForSlotActionExpense(Action):
             dispatcher.utter_message(text=f"El ticket must be numeric and kind of real")
 
         return []
+
+
+class AskForSlotActionExpense(Action):
+    def name(self) -> Text:
+        return "action_ask_added_an_expense"
+
+    def run(
+            self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> List[EventType]:
+        ticket_reservation = str(tracker.get_slot("ticket_reservation"))
+        room_number = str(tracker.get_slot("room_number"))
+        category_item = str(tracker.get_slot("category_item"))
+        value_item = str(tracker.get_slot("value_item"))
+
+        if ticket_reservation.isdigit() and room_number.isdigit() \
+                and 0 < int(category_item) <= 3 \
+                and int(value_item) > 0:
+            profile_db.add_expense(category_item, int(value_item), int(ticket_reservation) )
+            dispatcher.utter_message(text=f"Your expense was added success")
+        else:
+            dispatcher.utter_message(text=f"Please your fields are wrong. Something is not accomplishing ")
+        return []

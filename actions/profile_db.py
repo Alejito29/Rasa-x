@@ -181,5 +181,10 @@ class ProfileDB:
         self.session.add(USER(NAME=name, LAST_NAME=last_name))
         self.session.commit()
 
+    def add_expense(self, description: str, value: int, ticket: int):
+        """Add a new account for a new session_id. Assumes no such account exists yet."""
+        self.session.add(GASTO(DESCRIPTION=description, VALOR=value, TICKET=ticket))
+        self.session.commit()
+
     def get_init_database(sel):
         print("pruena")

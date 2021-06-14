@@ -121,3 +121,33 @@ stories:
   - action: action_ask_reserve_room
   - action: action_restart
   - action: action_reset_all_slots
+
+- story: interactive_story_9
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_add_expense
+  - action: add_expense_form
+  - active_loop: add_expense_form
+  - slot_was_set:
+    - requested_slot: room_number
+  - slot_was_set:
+    - room_number: vincent
+  - slot_was_set:
+    - requested_slot: ticket_reservation
+  - slot_was_set:
+    - ticket_reservation: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: category_item
+  - slot_was_set:
+    - category_item: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: value_item
+  - slot_was_set:
+    - value_item: vincent-mcvincent
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_ask_added_an_expense
+  - action: action_restart
+  - action: action_reset_all_slots

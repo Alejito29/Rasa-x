@@ -109,3 +109,6 @@ nlu:
 - intent: request_reserve_room
   examples: |
     - Rasa i would like to reserve my room please
+- intent: request_add_expense
+  examples: |
+    - Rasa i want to add an expense
