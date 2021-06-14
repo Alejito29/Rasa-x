@@ -29,6 +29,11 @@ forms:
     - type: from_text
     ticket_reservation:
     - type: from_text
+  reserve_room_form:
+    room_number:
+      - type: from_text
+    ticket_reservation:
+      - type: from_text
 slots:
   first_name:
     type: text
@@ -70,6 +75,7 @@ actions:
 - action_restart
 - action_ask_expense
 - action_ask_delivery_room
+- action_ask_reserve_room
 - action_ask_the_report_room
 - action_ask_the_report_user
 - action_ask_the_report_reservation

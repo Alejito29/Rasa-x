@@ -106,3 +106,6 @@ nlu:
 - intent: request_deliver_room
   examples: |
     - Rasa i will deliver my room
+- intent: request_reserve_room
+  examples: |
+    - Rasa i would like to reserve my room please

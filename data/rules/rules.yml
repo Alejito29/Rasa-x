@@ -47,3 +47,22 @@ rules:
   - action: action_ask_delivery_room
   - action: action_restart
   - action: action_reset_all_slots
+
+
+- rule: Activate form delivery
+  steps:
+  - intent: request_reserve_room
+  - action: reserve_room_form
+  - active_loop: reserve_room_form
+
+- rule: Submit form delivery
+  condition:
+  - active_loop: reserve_room_form
+  steps:
+  - action: reserve_room_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_ask_reserve_room
+  - action: action_restart
+  - action: action_reset_all_slots

@@ -486,15 +486,43 @@ class AskForSlotActionExpense(Action):
         room_number = str(tracker.get_slot("room_number"))
 
         if ticket_reservation.isdigit():
-            room_filter = list(filter(lambda x: x.TICKET_RESERVATION == int(ticket_reservation)
-                                                and x.ROOM_NUMBER == room_number,
-                                      profile_db.get_all_rooms()))
-            for item in room_filter:
-                profile_db.updateRoom(item.TICKET_RESERVATION, 'LIBRE')
-            if len(room_filter) > 0:
-                dispatcher.utter_message(text=f"The room was delivered. thank you")
+            room_all = list(filter(lambda x: x.ROOM_NUMBER == room_number
+                                   and x.TICKET_RESERVATION == int(ticket_reservation),
+                                   profile_db.get_all_rooms()))
+            if room_all is not None and len(room_all) > 0:
+                profile_db.updateRoom(room_all[0].id, 'LIBRE')
+                dispatcher.utter_message(text=f"The room was delivered. The room was {room_number}. Thank you")
             else:
-                dispatcher.utter_message(text=f"The ticket or room is wrong, please check them and try again")
+                dispatcher.utter_message(text=f"The ticket or room is wrong, please check them and try again,"
+                                              f" because Rasa did not find the {ticket_reservation} ticket  and "
+                                              f" {room_number} room")
+        else:
+            dispatcher.utter_message(text=f"El ticket must be numeric and kind of real")
+
+        return []
+
+
+class AskForSlotActionExpense(Action):
+    def name(self) -> Text:
+        return "action_ask_reserve_room"
+
+    def run(
+            self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> List[EventType]:
+        ticket_reservation = str(tracker.get_slot("ticket_reservation"))
+        room_number = str(tracker.get_slot("room_number"))
+
+        if ticket_reservation.isdigit():
+            room_all = list(filter(lambda x: x.ROOM_NUMBER == room_number
+                                   and x.TICKET_RESERVATION == int(ticket_reservation),
+                                   profile_db.get_all_rooms()))
+            if room_all is not None and len(room_all) > 0:
+                profile_db.updateRoom(room_all[0].id, 'OCUPADO')
+                dispatcher.utter_message(text=f"The room was reserved. thank you")
+            else:
+                dispatcher.utter_message(text=f"The ticket or room is wrong, please check them and try again,"
+                                              f" because Rasa did not find the {ticket_reservation} ticket  and "
+                                              f" {room_number} room")
         else:
             dispatcher.utter_message(text=f"El ticket must be numeric and kind of real")
 
